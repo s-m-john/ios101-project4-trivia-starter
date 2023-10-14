@@ -8,6 +8,14 @@
 
 import Foundation
 
+struct TriviaQuestion: Decodable {
+    let category: String
+    let question: String
+    let correctAnswer: String
+    let incorrectAnswers: [String]
+}
+
+
 class TriviaQuestionService {
     private let apiUrl = "https://opentdb.com/api.php?amount=5" // Modify the URL as needed
 
