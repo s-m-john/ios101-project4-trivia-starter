@@ -26,9 +26,34 @@ class TriviaViewController: UIViewController {
     super.viewDidLoad()
     addGradient()
     questionContainerView.layer.cornerRadius = 8.0
-    // TODO: FETCH TRIVIA QUESTIONS HERE
+    fetchTriviaQuestions()
   }
   
+  private func fetchTriviaQuestions() {
+    let triviaService = TriviaQuestionService()
+    triviaService.fetchTriviaQuestions { [weak self] (questions, error) in
+        if let error = error {
+            print("Error fetching questions: \(error.localizedDescription)")
+        } else if let questions = questions {
+            self?.questions = questions
+            DispatchQueue.main.async {
+                self?.displayFirstQuestion()
+                }
+        }
+    }
+}
+
+  private func displayFirstQuestion() {
+    guard !questions.isEmpty else {
+        return
+    }
+    currQuestionIndex = 0
+    updateQuestion(withQuestionIndex: currQuestionIndex)
+}
+    
+    
+    
+    
   private func updateQuestion(withQuestionIndex questionIndex: Int) {
     currentQuestionNumberLabel.text = "Question: \(questionIndex + 1)/\(questions.count)"
     let question = questions[questionIndex]
