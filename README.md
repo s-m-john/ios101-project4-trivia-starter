@@ -1,4 +1,4 @@
-#Project 4 - *Name of App Here*
+#Project 4 - ios101-project4-trivia-starter pt 2
 
 Submitted by: Sophia John
 
@@ -28,6 +28,9 @@ The following **additional** features are implemented:
 - [ ] List anything else that you can get done to improve the app functionality!
 
 ## Video Walkthrough
+
+https://imgur.com/vkAr3z4.gif
+
 
 Here is a reminder on how to embed Loom videos on GitHub. Feel free to remove this reminder once you upload your README. 
 
